@@ -9,4 +9,7 @@
 ``Space taken ins O(V2).
 
 2. Adjacency List:
+Pros: Less space as we are only saving the existing edges in the graph instead of all the possible edges.
+   
+
    
