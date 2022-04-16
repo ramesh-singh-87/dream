@@ -35,4 +35,8 @@ Consistent hashing is a special kind of hashing such that when a
 hash table is re-sized and consistent hashing is used, only k/n keys need to be remapped on
 average, where k is the number of keys, and n is the number of slots. In contrast, in most
 traditional hash tables, a change in the number of array slots causes nearly all keys to be
-remapped
+remapped.
+
+hash functions are separated in a circle. When any server is removed or added only handful of hash functions get effected.
+To normalize the distribution of hash functions we can create virtual nodes which refers to actual nodes.
+To find the number of keys to be rehashed move anti-cloclwise from the deleted/added node till you find another server and count the keys in between.
