@@ -18,3 +18,21 @@
 **Design Rate Limiter**
 
 1. In microservices architecture rate limiter are generally implemented in API gateway component.
+
+Token bucket Algorithm:
+1. Bucket Size, Rate of filling the bucket, no of buckets.
+
+Leaking Bucket Algorithm
+1. Queue Size, and outflow rate, rate at which the requests will be filled
+
+Fixed Window Counter Algorithm
+
+**Design Consistent Hashing**
+
+Used in horizontal scaling to distribute data evenly across multiple servers.
+
+Consistent hashing is a special kind of hashing such that when a
+hash table is re-sized and consistent hashing is used, only k/n keys need to be remapped on
+average, where k is the number of keys, and n is the number of slots. In contrast, in most
+traditional hash tables, a change in the number of array slots causes nearly all keys to be
+remapped
