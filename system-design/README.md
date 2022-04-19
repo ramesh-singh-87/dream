@@ -40,3 +40,36 @@ remapped.
 hash functions are separated in a circle. When any server is removed or added only handful of hash functions get effected.
 To normalize the distribution of hash functions we can create virtual nodes which refers to actual nodes.
 To find the number of keys to be rehashed move anti-cloclwise from the deleted/added node till you find another server and count the keys in between.
+
+
+**Design a Key Value Store**
+
+Very easy to design single server key value store. Use in memory Hash Table but one sever cannot handle the
+memory requirements.
+1. Data compressions
+2. Cache: store frequently used keys in memory and rest in disk.
+
+***CAP Theorem***
+CAP Theorem states that it is impossible for a distributed system to provide more than 2 of these 3 gurantees:
+Consistency: All nodes should see same data if some nodes failed.
+Availability: All users should be able to get response when some nodes failed.
+Partition Tolerance: The application should work properly when communication  break between 2 nodes.
+
+Let's say we have 3 nodes in our application, n1, n2 and n3 and if n3 node breaks down, we can either implement
+
+***AP***: We will allow reads to n1 and n2 although that may be stale data. For writes to n1 and n2 will be keep happening
+and data will be synced when n3 will come up again.
+
+***CP*** We will not allow writes to n1 and n2 to avoid data inconsistency.
+
+***System Components***
+Data Partition: can be achieved using consistent hashing.
+
+Data Replication: replicas can be configured as N, and once server is resolved using consistent hashing 
+move clockwise to replicate data on first N servers.
+
+Consistency:
+Since data is replicated across multiple replicas we can configure the no of acks for write and read operation
+when we consider the write/read as successful. These values will be trade offs between latency and consistency.
+
+
