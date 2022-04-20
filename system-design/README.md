@@ -72,4 +72,29 @@ Consistency:
 Since data is replicated across multiple replicas we can configure the no of acks for write and read operation
 when we consider the write/read as successful. These values will be trade offs between latency and consistency.
 
+Resolving Conflicts:
+A vector clock [server, version] is a pair associated with a data item.
+
+Handling failures:
+Gossip protocol can be used to detect failures.
+Each node maintains it's participant list and increment heartbeat counter, if some node's heartbeat is not incremented
+it will send it's participant list to random nodes and once confirmed by them, that node is marked failed or down.
+
+To handle temporary failures we use hinted handoff and move all reads/writes to neighbouring nodes.
+To handle permanent failures use Merkle trees
+
+**Deign Unique ID Generator**
+
+Approach 1: Generate IDs with auto increment database IDs. Things to note here is IDs will be incremented with no of servers.
+Approach 2: UUID generators.
+Approach 3: Single Ticket Server
+Approach 4: Twitter Snowflake
+
+Divide ID in different sections:
+Signed Bit: 1 bit (Always 0).
+TimeStamp bit: 41 bits
+Datacenter id: 5 bits
+Machine id: 5 bits
+Sequence number: 12 bit this will be reset to 0 every millisecond.
+
 
