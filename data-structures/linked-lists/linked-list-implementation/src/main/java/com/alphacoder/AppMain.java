@@ -39,6 +39,12 @@ public class AppMain {
         list.delete(46);
         list.print();
 
+        list.reverse();
+        list.print();
+
+        list.reverseRecursively();
+        list.print();
+
 
     }
 }

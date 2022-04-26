@@ -81,5 +81,41 @@ public class LinkedList {
         previous.next= temp.next;
     }
 
+    /*
+     Time Complexity: O(n)
+     Space Complexity: O(1)
+     */
+    public void reverse(){
+        Node previous= null;
+        Node current= head;
+        Node next= current.next;
 
+        while(current!= null){
+            current.next= previous;
+            previous= current;
+            current= next;
+            if(current!= null) {
+                next = current.next;
+            }
+        }
+
+        head= previous;
+    }
+
+    public void reverseRecursively(){
+        head= reverseRecursively(head);
+    }
+
+    private Node reverseRecursively(Node head){
+        if(head== null || head.next== null){
+            return head;
+        }
+
+
+        Node node= reverseRecursively(head.next);
+        head.next.next= head;
+        head.next= null;
+
+        return node;
+    }
 }
