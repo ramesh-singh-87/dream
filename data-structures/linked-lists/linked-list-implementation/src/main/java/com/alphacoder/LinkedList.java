@@ -118,4 +118,16 @@ public class LinkedList {
 
         return node;
     }
+
+    public void printReverse(){
+        System.out.println("Reverse Print.");
+        printReverse(head);
+    }
+    private void printReverse(Node head){
+        if(head==null){
+            return;
+        }
+        printReverse(head.next);
+        System.out.println(head.data);
+    }
 }

@@ -45,6 +45,7 @@ public class AppMain {
         list.reverseRecursively();
         list.print();
 
+        list.printReverse();
 
     }
 }
