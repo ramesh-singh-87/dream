@@ -19,5 +19,6 @@ public class AppMain {
         System.out.println(stack.pop());
         System.out.println(stack.peek());
 
+
     }
 }
