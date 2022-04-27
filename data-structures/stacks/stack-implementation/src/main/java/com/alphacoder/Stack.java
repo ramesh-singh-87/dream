@@ -27,6 +27,10 @@ public class Stack {
         arr[top]= data;
     }
 
+    /*
+    Time complexity: O(1)
+    Space complexity: O(1)
+     */
     public int pop(){
         if(top==-1){
             throw new StackOverflowError("Cannot pop. Stack is empty.");
@@ -36,6 +40,10 @@ public class Stack {
         return res;
     }
 
+    /*
+        Time complexity: O(1)
+        Space complexity: O(1)
+         */
     public int peek(){
         if(top==-1){
             throw new StackOverflowError("Cannot peek. Stack is empty.");
