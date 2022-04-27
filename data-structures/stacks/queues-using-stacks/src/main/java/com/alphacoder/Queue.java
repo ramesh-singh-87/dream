@@ -34,7 +34,7 @@ public class Queue {
     Time Complexity: O(1)
     Space Complexity: O(1)
      */
-    public int pop(){
+    public int deQueue(){
         if(stack1.isEmpty()){
             throw new StackOverflowError("Cannot pop. Stack is empty.");
         }
@@ -47,6 +47,7 @@ public class Queue {
    Space Complexity: O(1)
     */
     public int peek(){
+
         if(stack1.isEmpty()){
             throw new StackOverflowError("Cannot peek. Stack is empty.");
         }
