@@ -13,19 +13,14 @@ public class Queue1 {
     }
 
     public void enQueue(int data){
+        while(!s1.isEmpty()){
+            s2.push(s1.pop());
+        }
         s1.push(data);
     }
 
     public int pop(){
-        while(!s1.isEmpty()){
-            s2.push(s1.pop());
-        }
-        int data= s2.pop();
-
-        while(!s2.isEmpty()){
-            s1.push(s2.pop());
-        }
-        return data;
+        return s1.pop();
     }
 
     public boolean isEmpty(){
