@@ -4,46 +4,31 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 
 public class Queue1 {
-    private Deque<Integer> stack1;
-    private Deque<Integer> stack2;
+    private Deque<Integer> s1;
+    private Deque<Integer> s2;
 
     public Queue1(){
-        stack1= new ArrayDeque<>();
-        stack2= new ArrayDeque<>();
+        s1= new ArrayDeque<>();
+        s2= new ArrayDeque<>();
     }
 
-    public boolean isEmpty(){
-        return stack1.isEmpty();
-    }
-
-    /*
-    Time Complexity: O(1)
-    Space Complexity: O(1)
-     */
     public void enQueue(int data){
-        stack1.push(data);
+        s1.push(data);
     }
 
-    /*
-    Time Complexity: O(n)
-    Space Complexity: O(n)
-     */
-
-    public int deQueue(){
-        if(stack1.isEmpty()){
-            throw new StackOverflowError("Cannot de-queue. Queue is empty.");
+    public int pop(){
+        while(!s1.isEmpty()){
+            s2.push(s1.pop());
         }
+        int data= s2.pop();
 
-        while(!stack1.isEmpty()){
-            stack2.push(stack1.pop());
+        while(!s2.isEmpty()){
+            s1.push(s2.pop());
         }
-        int data= stack2.pop();
-
-        while(!stack2.isEmpty()){
-            stack1.push(stack2.pop());
-        }
-
         return data;
     }
 
+    public boolean isEmpty(){
+        return s1.isEmpty();
+    }
 }

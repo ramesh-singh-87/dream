@@ -15,6 +15,7 @@ public class AppMain {
         System.out.println(queue.deQueue());
         System.out.println(queue.isEmpty());
         System.out.println(queue.deQueue());
+        System.out.println(queue.isEmpty());
         //System.out.println(queue.deQueue());
 
         System.out.println("***********************");
