@@ -30,4 +30,25 @@ public class PriorityQueue {
         return arr[ind].data;
     }
 
+    public int deQueue(){
+        int data= peek();
+        int index= find(data);
+
+        for(int i= index; i<size-1; i++){
+            arr[i]= arr[i+1];
+        }
+        size--;
+
+        return data;
+    }
+
+    public int find(int data){
+        for(int i=0; i< size; i++){
+            if(arr[i].data== data){
+                return i;
+            }
+        }
+        return 0;
+    }
+
 }

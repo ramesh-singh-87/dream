@@ -9,10 +9,14 @@ public class AppMain {
 
         PriorityQueue q= new PriorityQueue();
         q.enQueue(node1);
-        // q.enQueue(node2);
+        q.enQueue(node2);
         q.enQueue(node3);
         q.enQueue(node4);
 
         System.out.println(q.peek());
+        System.out.println(q.deQueue());
+        System.out.println(q.deQueue());
+        System.out.println(q.deQueue());
+        System.out.println(q.deQueue());
     }
 }
