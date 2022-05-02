@@ -4,10 +4,10 @@ public class BinarySearchTree {
     private Node root;
 
     public void insert(int data){
-
+        root=insertRec(root, data);
     }
 
-    public Node insertRec(Node root, int data){
+    private Node insertRec(Node root, int data){
         if(root==null){
             root= new Node(data);
             return root;
@@ -22,12 +22,17 @@ public class BinarySearchTree {
         return root;
     }
 
-    public void inOrder(Node root){
+
+    public void inOrder(){
+        inOrderRec(root);
+    }
+
+    private void inOrderRec(Node root){
         if(root== null){
             return;
         }
-        inOrder(root.left);
-        System.out.println(root.data+ " ");
-        inOrder(root.right);
+        inOrderRec(root.left);
+        System.out.print(root.data+ " ");
+        inOrderRec(root.right);
     }
 }
