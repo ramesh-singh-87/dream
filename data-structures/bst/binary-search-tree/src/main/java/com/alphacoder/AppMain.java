@@ -26,5 +26,6 @@ public class AppMain {
 
         System.out.println();
         bst.inOrder();
+
     }
 }
